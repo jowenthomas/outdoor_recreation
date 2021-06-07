@@ -1,0 +1,21 @@
+{%extends "layout.html"%}
+
+{%block content%}
+<div class="content">
+    <h1>Content Generation</h1>
+    <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.zipCode.label }}<br>
+            {{ form.zipCode(size=32) }}
+            {% for error in form.zipCode.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>{{ form.submit() }}</p>
+    </form>
+
+    <p>Suggestions: 94564, 15537, 90081 </p>
+
+</div>
+{%endblock%}

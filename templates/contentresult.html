@@ -1,0 +1,66 @@
+{%extends "layout.html"%}
+
+{%block content%}
+<link rel="stylesheet" href="{{cdn_css | safe}}" type="text/css"/>
+<script type="text/javascript" src="{{cdn_js | safe}}"></script>
+<script type="text/javascript" src="{{cdn_widg | safe}}"></script>
+
+
+<div class="content">
+
+<h1>{{ zipCode }}</h1>
+
+{% for x in temp %}
+    <li>{{ x }}</li>
+  {% endfor %}
+
+<h4>Nearby Recreational Areas:</h4>
+
+<div class="contentdetails">
+  {% for rec in recNames %}
+    <li>{{ rec }}</li>
+  {% endfor %}
+</div>
+
+<h4>Activities Available Nearby:</h4>
+<div class="contentdetails">
+  <p><b>Popular and Available Activities:</b> {{popularavailablestr}}</p>
+  <p><b>Other Available Activities:</b> {{basicavailablestr}} </p>
+
+  {{script2 | safe}}
+  {{div2 | safe}}
+</div>
+
+<h4>Attributes Available Nearby:</h4>
+<div class="contentdetails">
+  <p><b>Popular and Available Attributes:</b> {{Apopularavailablestr}}</p>
+  <p><b>Popular but Unavailable Attributes:</b> </p>
+  <div class="contentdetails">
+  {% for item in popularnotavailable %}
+    <li>{{ item }}</li>
+  {% endfor %}</div>
+  <p><b>Other Available Attributes:</b> {{otheravailablestr}}</p>
+
+
+</div>
+
+<h4>Typical Number of Visitors:</h4>
+
+<div class="contentdetails">
+  {{script1 | safe}}
+  {{div1 | safe}}
+</div>
+
+  <h4>Campsite Summary:</h4>
+
+<div class="contentdetails">
+  {{ finalsummary }}
+</div>
+
+
+
+</div>
+
+
+
+{%endblock%}
